@@ -1,6 +1,9 @@
-# flutter_base_setup
+# Basic Flutter Codebase Setup
 
-A new Flutter project.
+Clean Folder Architecture.
+Riverpod.
+Api Integration.
+
 
 ## Getting Started
 
