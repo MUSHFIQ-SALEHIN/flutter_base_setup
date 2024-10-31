@@ -16,6 +16,7 @@ class AppTheme {
         onError: Colors.white,
       ),
       scaffoldBackgroundColor: backgroundColor,
+      useMaterial3: true,
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
@@ -42,6 +43,7 @@ class AppTheme {
         onError: Colors.white,
       ),
       scaffoldBackgroundColor: const Color(0xFF121212),
+      useMaterial3: true,
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColorDark,
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),

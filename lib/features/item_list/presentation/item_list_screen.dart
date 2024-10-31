@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_setup/features/item_list/widgets/theme_button.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/item_repository.dart';
 import '../../../core/routing/app_router.dart';
@@ -13,6 +14,17 @@ class ItemListScreen extends StatefulWidget {
 
 class ItemListScreenState extends State<ItemListScreen> {
   @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    await Future.delayed(const Duration(seconds: 2));
+    FlutterNativeSplash.remove();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
@@ -24,7 +36,9 @@ class ItemListScreenState extends State<ItemListScreen> {
             actions: const [ThemeToggleButton()],
           ),
           body: itemsAsyncValue.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
             error: (error, stack) =>
                 const Center(child: Text('Error loading items')),
             data: (items) {
