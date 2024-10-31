@@ -8,7 +8,7 @@ class ItemApi {
   ItemApi(this.dio);
 
   Future<List<ItemModel>> fetchItems() async {
-    final response = await dio.get(ApiEndpoints.items);
+    final response = await dio.get(ApiEndpoints.posts);
     return (response.data as List).map((e) => ItemModel.fromJson(e)).toList();
   }
 }

@@ -1,19 +1,56 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      primaryColor: Colors.blue,
-      brightness: Brightness.light,
-      appBarTheme: const AppBarTheme(color: Colors.blue),
+      colorScheme: const ColorScheme.light(
+        primary: primaryColor,
+        onPrimary: Colors.white,
+        primaryContainer: primaryColorLight,
+        secondary: secondaryColor,
+        onSecondary: Colors.white,
+        surface: surfaceColor,
+        onSurface: textColorPrimary,
+        error: errorColor,
+        onError: Colors.white,
+      ),
+      scaffoldBackgroundColor: backgroundColor,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: primaryColor,
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(color: textColorPrimary, fontSize: 24),
+        bodyLarge: TextStyle(color: textColorPrimary, fontSize: 16),
+        bodyMedium: TextStyle(color: textColorSecondary, fontSize: 14),
+      ),
     );
   }
 
   static ThemeData get darkTheme {
     return ThemeData(
-      primaryColor: Colors.blueGrey,
-      brightness: Brightness.dark,
-      appBarTheme: const AppBarTheme(color: Colors.blueGrey),
+      colorScheme: const ColorScheme.dark(
+        primary: primaryColorDark,
+        onPrimary: Colors.white,
+        primaryContainer: primaryColor,
+        secondary: secondaryColorDark,
+        onSecondary: Colors.white,
+        surface: Color(0xFF1E1E1E),
+        onSurface: Colors.white,
+        error: errorColor,
+        onError: Colors.white,
+      ),
+      scaffoldBackgroundColor: const Color(0xFF121212),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: primaryColorDark,
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(color: Colors.white, fontSize: 24),
+        bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
+        bodyMedium: TextStyle(color: Colors.white70, fontSize: 14),
+      ),
     );
   }
 }
