@@ -13,7 +13,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ItemListScreen());
 
       case itemDetails:
-        final item = settings.arguments as ItemModel;
+        final item = settings.arguments as Items;
         return MaterialPageRoute(builder: (_) => ItemDetailsScreen(item: item));
 
       default:

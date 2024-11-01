@@ -7,8 +7,10 @@ class ItemApi {
 
   ItemApi(this.dio);
 
-  Future<List<ItemModel>> fetchItems() async {
-    final response = await dio.get(ApiEndpoints.posts);
-    return (response.data as List).map((e) => ItemModel.fromJson(e)).toList();
+  Future<List<Items>> fetchItems({required String searchQuery,required int itemsPerPage}) async {
+    final response = await dio.get(ApiEndpoints.posts,
+        queryParameters: {"q": searchQuery, "sort": "stars","per_page":itemsPerPage});
+    GitRepoModel model = GitRepoModel.fromJson(response.data);
+    return model.items!;
   }
 }
