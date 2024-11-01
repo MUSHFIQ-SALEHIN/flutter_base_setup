@@ -37,6 +37,7 @@ class ItemListNotifier extends StateNotifier<AsyncValue<List<Items>>> {
   }
 
   void updateSearchQuery(String query) {
+     state = const AsyncValue.loading();
     _searchQuery = query;
     _itemsPerPage = 15; // Reset items per page on new search
     _fetchItems();
