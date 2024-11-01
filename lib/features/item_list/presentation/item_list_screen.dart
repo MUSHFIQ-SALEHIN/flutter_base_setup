@@ -102,16 +102,24 @@ class ItemListScreenState extends ConsumerState<ItemListScreen> {
                       );
                     }
                     final item = items[index];
-                    return ListTile(
-                      title: Text(item.name!),
-                      subtitle: Text(item.owner!.starredUrl!),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRouter.itemDetails,
-                          arguments: item,
-                        );
-                      },
+                    return Card(
+                      child: ListTile(
+                        title: Text(item.name!),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(item.owner!.url!),
+                            Text("Fork Count : ${item.forksCount}")
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRouter.itemDetails,
+                            arguments: item,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),

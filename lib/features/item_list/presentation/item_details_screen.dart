@@ -12,7 +12,7 @@ class ItemDetailsScreen extends StatelessWidget {
       appBar: AppBar(title: Text(item.name!)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text(item.owner!.reposUrl!),
+        child: Text(item.description!),
       ),
     );
   }
